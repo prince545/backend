@@ -1,0 +1,48 @@
+.sidebar {
+  position: fixed;
+  top: 60px; /* Height of the navbar */
+  left: 0;
+  width: 200px;
+  height: calc(100vh - 60px); /* Full height minus navbar */
+  background-color: #fff;
+  padding: 20px 0;
+  box-shadow: 2px 0 4px rgba(0, 0, 0, 0.1);
+  z-index: 900;
+}
+
+.sidebar-options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.sidebar-option {
+  display: flex;
+  align-items: center;
+  padding: 15px 20px;
+  text-decoration: none;
+  color: #333;
+  font-size: 16px;
+  font-weight: 500;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.sidebar-option img {
+  width: 24px;
+  height: 24px;
+  margin-right: 15px;
+}
+
+.sidebar-option p {
+  margin: 0;
+}
+
+.sidebar-option:hover {
+  background-color: #e23744; /* Zomato red */
+  color: #fff;
+}
+
+.sidebar-option.active {
+  background-color: #e23744;
+  color: #fff;
+}
