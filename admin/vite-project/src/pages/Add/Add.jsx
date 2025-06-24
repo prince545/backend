@@ -2,8 +2,6 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import './Add.css';
 
-// const apiBaseUrl = 'http://localhost:3000'; // Removed unused variable
-
 const Add = () => {
   const [formData, setFormData] = useState({
     productName: '',
@@ -23,38 +21,52 @@ const Add = () => {
     const file = e.target.files[0];
     if (file) {
       if (formData.imagePreview) {
-        URL.revokeObjectURL(formData.imagePreview); // Free memory from previous preview
+        URL.revokeObjectURL(formData.imagePreview);
       }
       setFormData((prev) => ({
         ...prev,
         image: file,
-        imagePreview: URL.createObjectURL(file), // Use global URL object
+        imagePreview: URL.createObjectURL(file),
       }));
     }
   };
 
- 
   const onSubmitHandler = async (e) => {
     e.preventDefault();
-    
-    const formData = new FormData();
-    formData.append("name", formData.productName);
-    formData.append("description", formData.description);
-    formData.append("price", formData.price);
-    formData.append("countInStock", formData.countInStock);
-    formData.append("category", formData.category);
-    formData.append("image", formData.image);  // Ensure this is a File object
-  
+
+    // Validate and ensure all fields are properly set
+    if (!formData.productName || !formData.description || !formData.price || !formData.countInStock || !formData.image) {
+      alert("Please fill in all required fields.");
+      return;
+    }
+
+    if (isNaN(formData.price) || isNaN(formData.countInStock)) {
+      alert("Price and Count In Stock must be valid numbers.");
+      return;
+    }
+
+    const data = new FormData();
+    data.append("productName", formData.productName);
+    data.append("description", formData.description);
+    data.append("price", parseFloat(formData.price)); // Ensure price is a number
+    data.append("countInStock", parseInt(formData.countInStock, 10)); // Ensure countInStock is an integer
+    data.append("category", formData.category);
+    data.append("image", formData.image);
+
     try {
-      const response = await axios.post("http://localhost:3000/api/foods/upload", formData, {
+      const response = await axios.post("http://localhost:3000/api/foods/upload", data, {
         headers: { "Content-Type": "multipart/form-data" },
       });
       console.log("✅ Upload Success:", response.data);
     } catch (error) {
       console.error("❌ Upload Error:", error.response?.data || error.message);
+      if (error.response?.status === 400) {
+        console.error("❌ Bad Request Details:", error.response.data);
+      }
+      alert(`Error: ${error.response?.data?.error || "Server error"}`);
     }
   };
-   
+
   return (
     <div className="add-container">
       <h2>Add New Product</h2>
