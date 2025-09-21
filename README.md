@@ -1,41 +1,82 @@
 # 🍕 Food E-Commerce Application
 
-A full-stack food delivery e-commerce application built with React, Node.js, and MongoDB. This project consists of three main components: a customer-facing frontend, an admin panel, and a backend API.
+A full-stack food delivery e-commerce application built with modern web technologies. This project consists of three main applications: a customer-facing frontend, an admin panel, and a backend API, providing a complete solution for food ordering and management.
 
 ## 📁 Project Structure
 
 ```
 food-app/
-├── food-app/          # Customer Frontend (React + Vite)
-├── admin/             # Admin Panel (React + Vite)
-├── backend/           # Backend API (Node.js + Express)
-├── server/            # Additional server components
-├── routes/            # Additional route definitions
-└── src/               # Shared source components
+├── food-app/                    # Customer Frontend (React + Vite)
+│   ├── src/
+│   │   ├── components/          # Reusable UI components
+│   │   │   ├── AnimatedQuotes/  # Animated motivational quotes
+│   │   │   ├── App Download/    # App download section
+│   │   │   ├── Food/            # Food display components
+│   │   │   ├── FoodItem/        # Individual food item cards
+│   │   │   ├── Header/          # Hero section with call-to-action
+│   │   │   ├── Login/           # Authentication popup
+│   │   │   ├── Menu/            # Food menu with filtering
+│   │   │   ├── Navbar/          # Navigation with search & filters
+│   │   │   └── pages/           # Page components
+│   │   │       ├── Cart/        # Shopping cart page
+│   │   │       ├── Home/        # Landing page
+│   │   │       └── PlaceOrder/  # Checkout page
+│   │   ├── context/             # React Context for state management
+│   │   └── assets/              # Static assets and data
+│   └── public/                  # Public static files
+├── admin/vite-project/          # Admin Panel (React + Vite)
+│   ├── src/
+│   │   ├── components/          # Admin UI components
+│   │   │   ├── Navbar/          # Admin navigation
+│   │   │   ├── Sidebar/         # Admin sidebar menu
+│   │   │   └── Toast/           # Toast notifications
+│   │   ├── pages/               # Admin pages
+│   │   │   ├── Add/             # Add food items
+│   │   │   ├── List/            # List all food items
+│   │   │   └── Orders/          # Order management
+│   │   └── admin_assets/        # Admin-specific assets
+│   └── public/                  # Public admin assets
+├── backend/                     # Backend API (Node.js + Express)
+│   ├── config/                  # Database configuration
+│   ├── controller/              # Request handlers
+│   ├── models/                  # Database models
+│   ├── routes/                  # API routes
+│   ├── uploads/                 # File upload directory
+│   └── middleware/              # Custom middleware
+├── server/                      # Additional server components
+├── routes/                      # Additional route definitions
+└── frontend/                    # Legacy frontend components
 ```
 
 ## 🚀 Features
 
 ### Customer Frontend (`food-app/`)
-- **Home Page**: Featured food items and categories
-- **Menu**: Browse all available food items
-- **Cart**: Add/remove items and manage orders
-- **Place Order**: Complete checkout process
-- **User Authentication**: Login/signup functionality
-- **Responsive Design**: Mobile-friendly interface
+- **🏠 Home Page**: Featured food items, categories, and call-to-action sections
+- **🍽️ Menu**: Browse all available food items with advanced filtering and sorting
+- **🔍 Search & Filter**: Real-time search and category-based filtering
+- **🛒 Shopping Cart**: Add/remove items with quantity management
+- **📱 Place Order**: Complete checkout process with order summary
+- **👤 User Authentication**: Login/signup functionality with popup modal
+- **💬 Animated Quotes**: Motivational quotes with floating animation
+- **📱 Responsive Design**: Mobile-first responsive interface
+- **🎨 Modern UI**: Clean, modern design with smooth animations
 
 ### Admin Panel (`admin/vite-project/`)
-- **Add Food Items**: Upload new food items with images
-- **List Management**: View and manage all food items
-- **Order Management**: Track and manage customer orders
-- **Dashboard**: Overview of business metrics
+- **➕ Add Food Items**: Upload new food items with images and details
+- **📋 List Management**: View, search, and manage all food items
+- **📦 Order Management**: Track and manage customer orders
+- **📊 Dashboard**: Overview of business metrics and operations
+- **🔔 Toast Notifications**: Real-time feedback for user actions
+- **📁 File Upload**: Image upload with preview functionality
 
 ### Backend API (`backend/`)
-- **RESTful API**: Food management endpoints
-- **Image Upload**: Multer middleware for file handling
-- **Database**: MongoDB with Mongoose ODM
-- **Authentication**: JWT-based user authentication
-- **Payment Integration**: Stripe payment processing
+- **🔗 RESTful API**: Comprehensive food management endpoints
+- **📸 Image Upload**: Multer middleware for file handling
+- **🗄️ Database**: MongoDB with Mongoose ODM
+- **🔐 Authentication**: JWT-based user authentication system
+- **💳 Payment Integration**: Stripe payment processing
+- **🛡️ Security**: Password hashing with bcrypt
+- **🌐 CORS Support**: Cross-origin resource sharing enabled
 
 ## 🛠️ Technology Stack
 
