@@ -80,23 +80,31 @@ food-app/
 
 ## 🛠️ Technology Stack
 
-### Frontend
-- **React 19** - UI framework
-- **Vite** - Build tool and dev server
-- **React Router DOM** - Client-side routing
-- **React Icons** - Icon library
-- **Axios** - HTTP client (admin panel)
+### Frontend (Customer App)
+- **React 19.0.0** - Modern React with latest features
+- **Vite 6.2.0** - Fast build tool and development server
+- **React Router DOM 7.4.0** - Client-side routing
+- **React Icons 5.5.0** - Beautiful icon library
+- **Context API** - State management for cart and user data
+
+### Admin Panel
+- **React 19.0.0** - UI framework
+- **Vite 6.2.0** - Build tool and development server
+- **React Router DOM 7.4.1** - Navigation and routing
+- **Axios 1.8.4** - HTTP client for API communication
+- **React Toastify 11.0.5** - Toast notification system
 
 ### Backend
 - **Node.js** - Runtime environment
-- **Express.js** - Web framework
-- **MongoDB** - Database
-- **Mongoose** - ODM for MongoDB
-- **Multer** - File upload middleware
-- **JWT** - Authentication
-- **Stripe** - Payment processing
-- **bcrypt** - Password hashing
-- **CORS** - Cross-origin resource sharing
+- **Express.js 4.21.2** - Web framework
+- **MongoDB 8.13.0** - NoSQL database
+- **Mongoose 8.13.0** - MongoDB object modeling
+- **JWT 9.0.2** - JSON Web Token authentication
+- **bcrypt 5.1.1** - Password hashing
+- **Multer 1.4.5** - File upload middleware
+- **Stripe 17.7.0** - Payment processing
+- **CORS 2.8.5** - Cross-origin resource sharing
+- **Validator 13.15.0** - Input validation
 
 ## 📦 Installation & Setup
 
@@ -232,13 +240,63 @@ STRIPE_PUBLISHABLE_KEY=pk_test_your-stripe-key
 1. Build the application: `npm run build`
 2. Deploy the `dist` folder to platforms like Vercel, Netlify, or GitHub Pages
 
+## 🏗️ Development Workflow
+
+1. **Start Backend**: Always start the backend server first
+2. **Start Frontend**: Launch customer app and admin panel
+3. **Database**: Ensure MongoDB is running (local or Atlas)
+4. **File Uploads**: Images are stored in `backend/uploads/`
+5. **API Testing**: Use tools like Postman or Thunder Client
+
+## 🔧 Troubleshooting
+
+### Common Issues
+
+**Backend not starting:**
+- Check if MongoDB is running
+- Verify `.env` file exists with correct values
+- Ensure all dependencies are installed: `npm install`
+
+**Frontend not loading:**
+- Verify backend is running on correct port
+- Check browser console for CORS errors
+- Ensure all dependencies are installed
+
+**Image uploads failing:**
+- Check file permissions for `uploads/` folder
+- Verify Multer configuration in routes
+- Ensure file size limits are appropriate
+
+**Database connection issues:**
+- Verify MongoDB URI in `.env`
+- Check network connectivity
+- Ensure database user has correct permissions
+
+## 🔄 Future Enhancements
+
+- [ ] User authentication and profiles
+- [ ] Order history and tracking
+- [ ] Payment gateway integration
+- [ ] Real-time notifications
+- [ ] Advanced analytics dashboard
+- [ ] Mobile app development
+- [ ] Multi-language support
+- [ ] Advanced search and recommendations
+
 ## 🤝 Contributing
 
-1. Fork the repository
-2. Create a feature branch: `git checkout -b feature-name`
-3. Commit your changes: `git commit -m 'Add feature'`
-4. Push to the branch: `git push origin feature-name`
-5. Submit a pull request
+1. **Fork** the repository
+2. **Create** a feature branch: `git checkout -b feature-name`
+3. **Commit** your changes: `git commit -m 'Add feature'`
+4. **Push** to the branch: `git push origin feature-name`
+5. **Submit** a pull request
+
+### Development Guidelines
+- Follow React best practices and hooks patterns
+- Use TypeScript for new components (optional)
+- Write meaningful commit messages
+- Test features across different browsers
+- Ensure responsive design for mobile devices
 
 ## 📄 License
 
@@ -246,8 +304,17 @@ This project is licensed under the ISC License.
 
 ## 👨‍💻 Author
 
-Simerjeet Singh
+**Simerjeet Singh**
 
 ---
 
-**Note**: Make sure to update the MongoDB connection string and other sensitive information in the `.env` file before deploying to production. 
+## 📞 Support
+
+For support and questions:
+- Create an issue in the repository
+- Check the troubleshooting section above
+- Ensure all prerequisites are properly installed
+
+---
+
+**Note**: Make sure to update the MongoDB connection string and other sensitive information in the `.env` file before deploying to production. Never commit sensitive data to version control.
